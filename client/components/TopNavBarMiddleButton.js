@@ -1,19 +1,22 @@
 import { DriveButton } from './DriveButton';
 import { DriverItemList } from './DriverItemList';
 import { RiderInfoItem } from './RiderInfoItem';
+import { DriverInfoItem } from './DriverInfoItem';
 
 export function TopNavBarMiddleButton({ isDriver, isRider, isMatched,
   isWaitingForMatch, isConfirmed, drivers, friends, onMiddleButtonClick, }) {
 
   /* Logic below is to get rider from matchedId, will need to refactor */
-  var matched;
-  friends.forEach(function (friend) {
-    for (var key in friend) {
-      if (friend[key] === isMatched) {
-        matched = friend;
+  var confirmedDriver = toMatch(drivers);
+  function toMatch(collection) {
+    return collection.forEach(function (item) {
+      for (var key in item) {
+        if (item[key] === isMatched) {
+          return item;
+        }
       }
-    }
-  });
+    });
+  }
 
   matched = matched ||  {
     fullName: 'bogus',

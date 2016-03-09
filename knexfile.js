@@ -98,4 +98,3 @@ module.exports = {
     debug: false, // set true for verbose database operations
   },
 };
-

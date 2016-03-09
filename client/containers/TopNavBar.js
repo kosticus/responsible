@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { TopNavBarMiddleButton } from '../components/TopNavBarMiddleButton';
 import { SettingIcon } from '../components/SettingIcon';
+import { ProfileButton } from '../components/ProfileButton';
 
 export class TopNavBar extends React.Component {
   constructor({ drivers, flags }) {
@@ -16,6 +17,7 @@ export class TopNavBar extends React.Component {
       <div className="TopNavBarContainer">
         <SettingIcon />
         <TopNavBarMiddleButton {...this.flags} drivers={this.drivers} />
+        <ProfileButton />
       </div>
     );
   }

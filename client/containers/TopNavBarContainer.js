@@ -1,6 +1,7 @@
 import React from 'react';
 import { TopNavBarMiddleButton } from '../components/TopNavBarMiddleButton';
 import { SettingIcon } from '../components/SettingIcon';
+import { ProfileButton } from '../components/ProfileButton';
 
 export class TopNavBarContainer extends React.Component {
   constructor({ drivers, flags }) {
@@ -14,6 +15,7 @@ export class TopNavBarContainer extends React.Component {
       <div className="TopNavBarContainer">
         <SettingIcon />
         <TopNavBarMiddleButton {...this.flags} drivers={this.drivers} />
+        <ProfileButton />
       </div>
     );
   }

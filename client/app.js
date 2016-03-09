@@ -36,7 +36,7 @@ const dummyState = {
   ],
   flags: {
     isDriver: false,
-    isRider: true,
+    isRider: false,
     isMatched: false,
     isConfirmed: false,
   },

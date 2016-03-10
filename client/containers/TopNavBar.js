@@ -8,6 +8,9 @@ import { TopNavBarRightButton } from '../components/TopNavBarRightButton';
 import * as userAction from '../actionCreators/user';
 import * as viewAction from '../actionCreators/view';
 
+require('../public/styles/skeleton.css');
+require('../public/styles/normalize.css');
+
 export class TopNavBar extends React.Component {
   constructor() {
     super();

@@ -3,22 +3,26 @@ import { DriverItemList } from './DriverItemList';
 import { RiderInfoItem } from './RiderInfoItem';
 import { DriverInfoItem } from './DriverInfoItem';
 
+require('../public/styles/normalize.css');
+require('../public/styles/skeleton.css');
+
 export function TopNavBarMiddleButton({ isDriver, isRider, isMatched,
   isWaitingForMatch, isConfirmed, drivers, friends, onMiddleButtonClick, }) {
 
   /* Logic below is to get rider from matchedId, will need to refactor */
-  var confirmedDriver = toMatch(drivers);
-  function toMatch(collection) {
-    return collection.forEach(function (item) {
-      for (var key in item) {
-        if (item[key] === isMatched) {
-          return item;
-        }
-      }
-    });
-  }
 
-  matched = matched ||  {
+  // var confirmedDriver = toMatch(drivers);
+  // function toMatch(collection) {
+  //   return collection.forEach(function (item) {
+  //     for (var key in item) {
+  //       if (item[key] === isMatched) {
+  //         return item;
+  //       }
+  //     }
+  //   });
+  // }
+
+  let matched = matched ||  {
     fullName: 'bogus',
     avatar: 'http://compliancebuilding.com/wp-content/uploads' +
     '/2013/10/monster-mash-and-compliance.jpg',
@@ -32,7 +36,7 @@ export function TopNavBarMiddleButton({ isDriver, isRider, isMatched,
           <DriveButton onMiddleButtonClick={onMiddleButtonClick.bind(null, 'isDriver')} /> :
 
         // Choosing page (user is now a rider but not matched)
-        isRider === true && isMatched === null ?
+        isRider === true && isMatched === false ?
           <DriverItemList drivers={drivers}/> :
 
         // // User has been matched

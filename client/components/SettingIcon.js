@@ -9,7 +9,7 @@ export function SettingIcon({
 }) {
   return (
     <div className='SettingIcon' onClick={onSettingButtonClick}>
-      <button className='SettingButton btn one-third column' type='button'>Settings!</button>
+      <button className='SettingButton btn third columns' type='button'>Settings!</button>
     </div>
   );
 }

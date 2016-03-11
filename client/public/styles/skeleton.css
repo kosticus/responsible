@@ -379,6 +379,9 @@ form {
 .Logo {
   margin: 0 .2%;
 }
+.SettingButton {
+  text-indent: 35%
+}
 
 /* Profile
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

@@ -18,7 +18,7 @@ export function TopNavBarRightButton({
           <CancelRideButton onCancelRideButtonClick={onCancelRideButtonClick} /> :
           isDriver || isRider ?
             <ProfileButton onProfileButtonClick={onProfileButtonClick} /> :
-            <div className="emptyDiv">emptyDiv</div>
+            <div className="emptyDiv"></div>
       }
     </div>
   );

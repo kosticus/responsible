@@ -1,4 +1,3 @@
-// uses DriverItem (and not FriendItem) for own styling
 import {DriverItem} from './DriverItem';
 
 export function DriverItemList({ drivers }) {

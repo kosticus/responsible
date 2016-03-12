@@ -1,6 +1,3 @@
-require('../public/styles/skeleton.css');
-require('../public/styles/normalize.css');
-
 /* This function will dispatch an action to change to Driver mode */
 function nullFn(e) { console.log('you clicked me ' + e.target.className); };
 

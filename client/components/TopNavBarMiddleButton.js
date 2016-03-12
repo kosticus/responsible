@@ -3,9 +3,6 @@ import { DriverItemList } from './DriverItemList';
 import { RiderInfoItem } from './RiderInfoItem';
 import { DriverInfoItem } from './DriverInfoItem';
 
-require('../public/styles/normalize.css');
-require('../public/styles/skeleton.css');
-
 export function TopNavBarMiddleButton({ isDriver, isRider, isMatched,
   isWaitingForMatch, isConfirmed, drivers, friends, onMiddleButtonClick, }) {
 

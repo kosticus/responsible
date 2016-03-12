@@ -8,26 +8,17 @@ import { TopNavBarRightButton } from '../components/TopNavBarRightButton';
 import * as userAction from '../actionCreators/user';
 import * as rideAction from '../actionCreators/ride';
 
-require('../public/styles/normalize.css');
-require('../public/styles/skeleton.css');
-
-class TopNavBar extends React.Component {
-  constructor() {
-    super();
-  }
-
-  render() {
-    return (
-      <div className="TopNavBarContainer row">
-        <SettingIcon />
-        <Logo />
-        <TopNavBarRightButton
-          {...this.props}
-        />
-      </div>
-    );
-  }
-};
+function TopNavBar(props) {
+  return (
+    <div className="TopNavBarContainer row">
+      <SettingIcon />
+      <Logo />
+      <TopNavBarRightButton
+        {...props}
+      />
+    </div>
+  );
+}
 
 const mapStateToProps = function (state) {
   return state.toJS();

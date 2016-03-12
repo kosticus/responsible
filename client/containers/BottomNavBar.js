@@ -9,21 +9,16 @@ import * as rideAction from '../actionCreators/ride';
 require('../public/styles/normalize.css');
 require('../public/styles/skeleton.css');
 
-class BottomNavBar extends React.Component {
-  constructor() {
-    super();
-  }
-
-  render() {
-    let ride = this.props.ride;
-    return (
-      <div className="BottomNavBarContainer row">
-        <BottomNavBarButton {...ride}
-          onConfirmLocationButtonClick={this.props.onConfirmLocationButtonClick} />
-      </div>
-    );
-  }
-};
+/* Jonathan: does this feel too clunky to you? I was debating passing down props and
+pulling out the objects we need in each container (like: props.ride). Not sure... */
+function BottomNavBar({ ride, onConfirmLocationButtonClick }) {
+  return (
+    <div className="BottomNavBarContainer row">
+      <BottomNavBarButton {...ride}
+        onConfirmLocationButtonClick={onConfirmLocationButtonClick} />
+    </div>
+  );
+}
 
 const mapStateToProps = function (state) {
   return state.toJS();

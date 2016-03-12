@@ -5,11 +5,6 @@ import { BottomNavBarContainer } from './BottomNavBar';
 import { SplashContainer } from '../components/Splash';
 import { MapView } from '../components/MapView';
 
-require('../public/styles/skeleton.css');
-require('../public/styles/normalize.css');
-
-// import { Map } from './googleMapComponent';
-
 function Main({ isDriver, isRider }) {
   console.log('isDriver, isRider:', isDriver, isRider);
   return (

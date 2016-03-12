@@ -14,7 +14,7 @@ export default {
     friends: [
       {
         id: 2,
-        avatar: 'http://spirit-animals.com/wp-content/uploads/2012/09/Dolphin.jpg',
+        avatar: 'http://dreamatico.com/data_images/dolphin/dolphin-2.jpg',
         fullName: 'Flipp',
       },
       {

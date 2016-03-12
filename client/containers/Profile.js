@@ -6,25 +6,18 @@ import { UserImage } from '../components/UserImage';
 import { ProfileInfoItemList } from '../components/ProfileInfoItemList';
 import * as userAction from '../actionCreators/user';
 
-export class Profile extends React.Component {
-  constructor () {
-    super();
-  };
-
-  render() {
-    let user = this.props;
-    return (
-      <div className="ProfileContainer">
-        <UserImage {...user.profile} imageType="portrait" />
-        <ProfileInfoItemList />
-        <FriendItemList
-          friends={user.friends}
-          onFriendClick={this.props.onFriendClick}
-        />
-      </div>
-    );
-  };
-};
+function Profile({ friends, profile, onFriendClick }) {
+  return (
+    <div className="ProfileContainer">
+      <UserImage {...profile} imageType="portrait" />
+      <ProfileInfoItemList />
+      <FriendItemList
+        friends={friends}
+        onFriendClick={onFriendClick}
+      />
+    </div>
+  );
+}
 
 const mapStateToProps = function (state) {
   console.log('profile state to props:', state.toJS());

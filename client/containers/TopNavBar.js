@@ -25,7 +25,7 @@ function TopNavBar({ onCancel, onEndDriver, onPickUp, onComplete, onHomeClick, .
     <Navbar>
       <Navbar.Header className="mainHeader">
         <Navbar.Brand className="mainTitle">
-          <a onClick={onHomeClick} bsClass="navHeader" >Fleet</a>
+          <a href="/" onClick={onHomeClick} bsClass="navHeader" >Fleet</a>
         </Navbar.Brand>
       </Navbar.Header>
       <Nav>

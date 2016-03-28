@@ -25,12 +25,7 @@ export default {
     matchFlag: false,
     directions: null,
     riders: [],
-    messages: [
-      { user_id: 9, time: '12:30', text: 'Where are you?', },
-      { user_id: 8, time: '12:42', text: 'On my way. Where you at?', },
-      { user_id: 9, time: '12:45', text: 'Four Horseman', },
-      { user_id: 8, time: '12:50', text: 'Be there in ten.', },
-    ],
+    messages: [],
     isWaitingForMatch: false,
     isAddingDriver: false,
     isRemovingDriver: false,

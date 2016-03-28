@@ -9,7 +9,7 @@ import { MessageItemList } from '../components/Chat/MessageItemList';
 
 import * as chatAction from '../actionCreators/chat';
 
-export function box({ isDriver, isPickedUp, user_id, match, friends, messages, addMessage}) {
+export function box({ isDriver, isPickedUp, user_id, match, friends, messages, addMessage }) {
 
   let friendPartner = friends.find((friend) => match.user_id === friend.user_id);
 
@@ -31,8 +31,6 @@ export function box({ isDriver, isPickedUp, user_id, match, friends, messages, a
     </div>
   );
 }
-
-
 
 // jscs:disable
 const mapDispatchToProps = function (dispatch) {

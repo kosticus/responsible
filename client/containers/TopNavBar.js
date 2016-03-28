@@ -24,6 +24,7 @@ function TopNavBar({ onCancel, onEndDriver, onPickUp, onComplete, onHomeClick, o
     cancelClick = onCancel.bind(null, user.user_id, null);
 
   return (
+<<<<<<< 704d75398834aded24847484bcd978d84a4ba2c8
     <div className='TopNavBarContainer'>
       <nav className='navbar'>
         <div className='navbar-left'>
@@ -48,6 +49,28 @@ function TopNavBar({ onCancel, onEndDriver, onPickUp, onComplete, onHomeClick, o
           </div>
         </div>
       </nav>
+=======
+    <div className="nav">
+      <Dropdown bsStyle="info" className="settings" id="nav bar">
+        <Dropdown.Toggle noCaret>
+          <Glyphicon glyph="align-justify" />
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <MenuItem eventKey="4.1" onClick={onProfileButtonClick}>Profile</MenuItem>
+          <MenuItem eventKey="4.2" onClick={onFriendButtonClick}>Friends</MenuItem>
+          <MenuItem divider />
+          <MenuItem eventKey="4.3" onClick={onSignoutButtonClick}>Signout</MenuItem>
+        </Dropdown.Menu>
+      </Dropdown>
+      <img src="http://s10.postimg.org/mnt5sb8bd/Drawing_11.png" className="mainTitle" width="27px" onClick={onHomeClick}/>
+      <TopNavBarRightButton
+        {...props}
+        onCancel={cancelClick}
+        onEndDriver={endDriver}
+        onPickUp={onPickUp}
+        onComplete={onComplete}
+      />
+>>>>>>> style-added correct logo
     </div>
   );
 }

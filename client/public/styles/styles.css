@@ -17,8 +17,8 @@ body {
   left: 50%;
   transform: translate(-50%, 0);
   margin: 10px 0;
-  height: 75%;
-  width: 33%;
+  height: 68%;
+  width: 27%;
   margin-top: 7px;
   margin-bottom: auto;
 }
@@ -170,7 +170,11 @@ body {
 
 div.map {
   padding: .1%;
-  height: 95vh;
+  height: 90vh;
+  max-height: 400px;
+}
+
+.map {
   max-height: 500px;
 }
 
@@ -234,10 +238,10 @@ div.map {
 
 .duiFacts {
   background-color: #838EA1;
-  margin-top: 50px;
+  margin-top: 25px;
   margin-right: auto;
   margin-left: auto;
-  max-width: 75%;
+  max-width: 80%;
   text-align: center;
   float: center;
   margin-left: auto;

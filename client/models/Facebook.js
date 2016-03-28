@@ -14,9 +14,7 @@ const User = module.exports;
 function Facebook({ onFacebookClick = nullFn, }) {
   return (
     <div className='FacebookButton' onClick={onFacebookClick}>
-      <a className='button'>
       <i className='fa fa-facebook'></i>&nbsp;Facebook
-      </a>
     </div>
   );
 }

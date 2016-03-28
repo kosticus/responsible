@@ -14,9 +14,7 @@ const User = module.exports;
 function Google({ onGoogleClick = nullFn, }) {
   return (
     <div className='GoogleButton' onClick={onGoogleClick}>
-      <a className='button'>
       <i className='fa fa-google'/>&nbsp;Google
-      </a>
     </div>
   );
 }

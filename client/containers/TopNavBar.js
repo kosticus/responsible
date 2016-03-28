@@ -28,6 +28,7 @@ function TopNavBar({ onCancel, onEndDriver, onPickUp, onComplete, onHomeClick, o
       <nav className='navbar'>
         <div className='navbar-left'>
           <div className='navbar-item'>
+            <SettingIcon {...props}/>
           </div>
         </div>
         <div className='navbar-item'>

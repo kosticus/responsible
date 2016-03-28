@@ -4,7 +4,7 @@ import { Grid, Button, Row, Col, Thumbnail } from 'react-bootstrap'
 export function RiderItem(props) {
 
   return (
-    <Col xs={3} md={3} className="RiderItem">
+    <Col xs={4} md={4} className="RiderItem">
       <div className="riderItemDiv">
           <UserImage imageType="riderImage" className="riderItemImage" avatar={ props.avatar } />
           <div className="riderItemDescDiv">

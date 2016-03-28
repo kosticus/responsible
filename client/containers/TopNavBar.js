@@ -24,32 +24,6 @@ function TopNavBar({ onCancel, onEndDriver, onPickUp, onComplete, onHomeClick, o
     cancelClick = onCancel.bind(null, user.user_id, null);
 
   return (
-<<<<<<< 704d75398834aded24847484bcd978d84a4ba2c8
-    <div className='TopNavBarContainer'>
-      <nav className='navbar'>
-        <div className='navbar-left'>
-          <div className='navbar-item'>
-            <SettingIcon {...props}/>
-          </div>
-        </div>
-        <div className='navbar-item'>
-          <Logo />
-        </div>
-        <div className='navbar-right'>
-          <div className='CarIcon'>
-            <i className='fa fa-car'>
-              <TopNavBarRightButton
-                {...props}
-                onCancel={cancelClick}
-                onEndDriver={endDriver}
-                onPickUp={onPickUp}
-                onComplete={onComplete}
-              />
-            </i>
-          </div>
-        </div>
-      </nav>
-=======
     <div className="nav">
       <Dropdown bsStyle="info" className="settings" id="nav bar">
         <Dropdown.Toggle noCaret>
@@ -70,7 +44,6 @@ function TopNavBar({ onCancel, onEndDriver, onPickUp, onComplete, onHomeClick, o
         onPickUp={onPickUp}
         onComplete={onComplete}
       />
->>>>>>> style-added correct logo
     </div>
   );
 }

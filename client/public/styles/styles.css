@@ -106,8 +106,8 @@ body {
 }
 
 .imagePortrait {
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 180px;
+  max-height: 180px;
 }
 
 .imageIcon {
@@ -122,6 +122,24 @@ body {
   width: 100px;
 }
 
+/*~_~_PROFILE STUFF_~_~*/
+
+.profilePortraitContainer {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;;
+  padding-left: 100px;
+}
+
+.profileItem {
+  width:180px;
+  text-align: center;
+}
+
+.profileAddress {
+  width: 180px;
+  text-align: center;
+}
 /*
 *   ~_~_NAVBAR_~_~
 */

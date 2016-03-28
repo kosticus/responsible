@@ -240,6 +240,7 @@ div.map {
   height: 60px;
 }
 
+<<<<<<< 867ac711ad741f466aa8d4fbe3e11ee00815b606
 /*
 *   ~_~ Chat and Messages ~_~
 */
@@ -344,6 +345,83 @@ div.map {
 
 .clear {
   clear: both;
+/* Jonathan's color: 62949F */
+.auth{
+background-image: url('UnitedStates.jpg');
+background-image: url('UnitedStates.png');
+}
+
+.FacebookButton {
+  display: inline-block;
+  margin: 40px;
+  height: 38px;
+  padding: 0 30px;
+  color: white;
+  text-align: center;
+  font-size: 33px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: blue;
+  cursor: pointer;
+}
+
+.FacebookButton:hover {
+  color: red;
+}
+
+.GoogleButton {
+  display: inline-block;
+  margin: 40px;
+  height: 38px;
+  padding: 0 60px;
+  color: white;
+  text-align: center;
+  font-size: 33px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: blue;
+  cursor: pointer;
+}
+
+.GoogleButton:hover {
+  color: red;
+}
+.GitHubButton {
+  display: inline-block;
+  margin: auto;
+  height: 38px;
+  padding: 0 30px;
+  color: white;
+  text-align: center;
+  font-size: 33px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: blue;
+  cursor: pointer;
+}
+.GitHubButton:hover {
+  color: red;
 }
 
 /* Jonathan's color: 62949F */

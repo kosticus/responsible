@@ -1,4 +1,3 @@
-import { Button, ButtonToolbar } from 'react-bootstrap';
 import { GithubButton } from '../models/Github';
 import { GoogleButton } from '../models/Google';
 import { FacebookButton } from '../models/Facebook';

@@ -373,14 +373,11 @@ div.map {
   clear: both;
 }
 /* Jonathan's color: 62949F */
-.authBack{
-background-image: url('UnitedStates.png');
-}
 
 .FacebookButton {
   background-color:  #1A273B;
   border: 1.5px solid #bbb;
-  color: #FAFCFF; 
+  color: #FAFCFF;
   margin: auto;
   margin-top:  6%;
   margin-bottom: 6%;
@@ -404,7 +401,7 @@ background-image: url('UnitedStates.png');
 .GoogleButton {
   background-color:  #1A273B;
   border: 1.5px solid #bbb;
-  color: #FAFCFF; 
+  color: #FAFCFF;
   margin: auto;
   margin-top:  6%;
   margin-bottom: 6%;
@@ -426,7 +423,7 @@ background-image: url('UnitedStates.png');
 .GitHubButton {
   background-color:  #1A273B;
   border: 1.5px solid #bbb;
-  color: #FAFCFF; 
+  color: #FAFCFF;
   margin: auto;
   margin-top:  6%;
   margin-bottom: 6%;

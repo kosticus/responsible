@@ -30,7 +30,6 @@ module.exports = {
       },
       { test: require.resolve('react'), loader: 'expose?React', },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
-      { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/, loader: 'file-loader' },
     ],
   },
 };

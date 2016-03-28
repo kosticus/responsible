@@ -1,4 +1,4 @@
- import { Button, ButtonToolbar } from 'react-bootstrap';
+import { Button, ButtonToolbar } from 'react-bootstrap';
 
 // This function will dispatch action to change to Settings View
 function nullFn(e) { console.log('you clicked me ' + e.target.className); };

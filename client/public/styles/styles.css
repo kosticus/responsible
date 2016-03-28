@@ -5,6 +5,7 @@ body {
 
 .alert {
   margin: 5px;
+  text-align: center;
 }
 /*
 *   ~_~_TOP NAV BAR~_~
@@ -275,14 +276,14 @@ div.map {
   padding-bottom: 4px;
 }
 
-.incoming {
+.outgoing {
   position:relative;
-  padding:5px 10px;
-  color:white; 
+  padding: 10px;
+  color:white;
   background:#1A273B;
   border-radius:25px;
   float: right;
-    
+
   &:before {
     content:"";
     position:absolute;
@@ -308,14 +309,14 @@ div.map {
     -webkit-transform:translate(-30px, -2px);
   }
 }
-.outgoing {
+.incoming {
   position:relative;
-  padding:px 10px;
+  padding: 10px;
   background:#E5E5EA;
   border-radius:25px;
   color: black;
   float: left;
-    
+
   &:before {
     content:"";
     position:absolute;

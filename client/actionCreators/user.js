@@ -24,7 +24,7 @@ export function fetchUserInfo(props) {
         return info;
       })
       .then(function () {
-        var user = JSON.parse(localStorage.getItem('user'));
+        const user = JSON.parse(localStorage.getItem('user'));
         if (!user.user.address) {
           dispatch(changingAddress);
           dispatch(push('/profile'));

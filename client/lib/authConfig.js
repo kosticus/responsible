@@ -7,6 +7,7 @@ export const authMiddleware = store => next => action => {
   const github = OAuth.create('github');
   const google = OAuth.create('google');
   const auths = [github, google];
+
   if (hasAccessToken(auths)) {
     if (isLoginRedirect(action)) {
       next(action);

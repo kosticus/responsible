@@ -15,16 +15,14 @@ export const socket = io.connect(connectionString, {
   reconnectionAttempts: 3,
 });
 
-export const socketActionMiddleware =
-  curry((socket, store, next, action) => {
-    let meta = action.meta;
+export const socketActionMiddleware = (socket, store, next, action) => {
+  let meta = action.meta;
+  if (meta) {
+    socket.emit(meta.event, { to: meta.to, entry: meta.entry });
+  }
 
-    if (meta) {
-      socket.emit(meta.event, { to: meta.to, entry: meta.entry });
-    }
-
-    return next(action);
-  });
+  return next(action);
+};
 
 /**
  *  Configure socket connection settings here.

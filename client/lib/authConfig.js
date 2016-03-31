@@ -21,7 +21,7 @@ export const authMiddleware = store => next => action => {
       next(action);
     }
   }
-}
+};
 
 function hasAccessToken(auths) {
   let verified = false;

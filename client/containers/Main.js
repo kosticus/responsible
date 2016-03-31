@@ -5,11 +5,9 @@ import { TopNavBarContainer } from './TopNavBar';
 import { BottomNavBarContainer } from './BottomNavBar';
 import { SplashContainer } from './Splash';
 import { MapView } from '../components/MapView';
-import { GithubButton } from '../models/Github';
 import { RiderItemList } from './RiderItemList';
 import { ErrorMessage } from './Error';
 
-import * as userAction from '../actionCreators/user';
 import * as rideActions from '../actionCreators/ride';
 
 function Main({
@@ -64,10 +62,6 @@ const mapStateToProps = function (state) {
 
 const mapDispatchToProps = function (dispatch) {
   return {
-    onDirectionsResult(result) {
-      // dispatch(rideActions.setDirections(result));
-    },
-
     resetMatchFlag() {
       dispatch(rideActions.matchFlag(null));
     },

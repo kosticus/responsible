@@ -18,6 +18,8 @@ function Profile({ user_id, friends, profile, onFriendClick, onAddressEdit,
       Is this address a piece of the user object (as opposed to the user.profile
       object)? We might be checking the wrong piece of state and resetting our address
       to null! NULL!!
+    Sincerely,
+      J$
   */
   if (address) {setTimeout(function () {resetAddressFlag();}, 6000);}
 

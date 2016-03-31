@@ -18,7 +18,7 @@ export const socket = io.connect(connectionString, {
 export const socketActionMiddleware =
   curry((socket, store, next, action) => {
     let meta = action.meta;
-    
+
     if (meta) {
       socket.emit(meta.event, { to: meta.to, entry: meta.entry });
     }

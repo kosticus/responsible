@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { curry } from 'ramda';
-import { Grid, Row} from 'react-bootstrap'
+import { Grid, Row} from 'react-bootstrap';
+import { intersectionWith, eqBy, prop } from 'ramda';
 
 import * as rideAction from '../actionCreators/ride';
 
@@ -22,6 +23,8 @@ export function List({ ride, user, onRiderClick, }) {
       }
     });
   });
+
+  // let _riders = R.map(R.map(R.eqProps('user_id')))(user.friends, ride.riders);
 
   return (
     <div className="riderListDiv">

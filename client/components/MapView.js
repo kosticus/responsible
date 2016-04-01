@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 
 // overlayMapTypes
 // MapTypes
+// null on line ~30 would probably cause problems and just doesn't get triggered.
 export function MapView({ isRider, isDriver, match, location,
   friends, riders, directions, }) {
 
@@ -17,6 +18,9 @@ export function MapView({ isRider, isDriver, match, location,
     disableDefaultUI: true,
   };
 
+  // TODO
+  // content below can be done a bit more modularly - match logic in one of the
+  // GoogleMap components and import rider marker functionality.
   return match ?
   (
     <div className='map'>

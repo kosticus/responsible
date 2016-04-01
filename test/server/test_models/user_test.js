@@ -19,7 +19,7 @@ describe('User Models', function () {
     var users = yield User.getUsers();
     expect(users[0].user_id).to.equal(SeedObj.user1Id.user_id);
     expect(users).to.be.an.instanceOf(Array);
-    expect(users).to.have.length(4);
+    expect(users).to.have.length(5);
   });
 
   it_('Should find user by something', function * () {
@@ -38,5 +38,10 @@ describe('User Models', function () {
     var user = yield User.findUserIdByName('don cheenus');
     expect(user.user_id).to.equal(SeedObj.user1Id.user_id);
     expect(user).to.be.instanceOf(Object);
+  });
+
+  it_('Should delete user by Id', function * () {
+    var user = yield User.deleteUser(SeedObj.user5Id.user_id);
+    expect(user).to.equal(undefined);
   });
 });

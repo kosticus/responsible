@@ -1,3 +1,7 @@
+/*
+  Kim! This is a great file and function to document :~)!
+*/
+
 import { connect } from 'react-redux';
 import { Alert } from 'react-bootstrap';
 

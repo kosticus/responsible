@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { curry } from 'ramda';
-import { Grid, Row} from 'react-bootstrap'
+import { Grid, Row} from 'react-bootstrap';
+import { intersectionWith, eqBy, prop } from 'ramda';
 
 import * as rideAction from '../actionCreators/ride';
 
@@ -10,18 +11,15 @@ import * as rideActions from '../actionCreators/ride';
 function nullFn(e) { console.log('you clicked me ' + e.target.className); };
 
 export function List({ ride, user, onRiderClick, }) {
-  let _riders = [];
 
-  ride.riders.forEach(function (rider) {
-    user.friends.forEach(function (friend) {
-      if (friend.user_id === rider.user_id) {
-        let newRider = friend;
-        newRider.location = rider.location;
+  let _riders = ride.riders.map(function (rider) {
+    let friendRider = user.friends.find((friend) => friend.user_id === rider.user_id);
+    friendRider.location = rider.location;
 
-        _riders.push(newRider);
-      }
-    });
+    return friendRider;
   });
+
+  // let _riders = R.map(R.map(R.eqProps('user_id')))(user.friends, ride.riders);
 
   return (
     <div className="riderListDiv">

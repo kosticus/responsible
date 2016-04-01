@@ -42,8 +42,8 @@ const mapDispatchToProps = function (dispatch) {
               dispatch(userAction.fetchUserInfo(toSend));
             });
         })
-        .fail(function (err) {
-          console.log('error', err);
+        .fail(function (error) {
+          console.log('error signing in with Github', error);
         });
     },
   };

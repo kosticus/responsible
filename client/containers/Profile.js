@@ -11,7 +11,17 @@ import * as userAction from '../actionCreators/user';
 
 function Profile({ user_id, friends, profile, onFriendClick, onAddressEdit,
   isChangingAddress, editAddress, address, resetAddressFlag, }) {
-  if (address) {setTimeout(function () {resetAddressFlag();}, 6000);}
+
+  /*
+    Dear Kim,
+      I've had a few drinks to drink and now I have a question to query.
+      Is this address a piece of the user object (as opposed to the user.profile
+      object)? We might be checking the wrong piece of state and resetting our address
+      to null! NULL!!
+    Sincerely,
+      J$
+  */
+  if (address) setTimeout(resetAddressFlag, 6000);
 
   return (
     <div className="ProfileContainer">
@@ -59,7 +69,6 @@ function Profile({ user_id, friends, profile, onFriendClick, onAddressEdit,
 }
 
 const mapStateToProps = function (state) {
-  // console.log('profile state to props:', state.toJS());
   return state.get('user').toJS();
 };
 

@@ -5,11 +5,9 @@ import { TopNavBarContainer } from './TopNavBar';
 import { BottomNavBarContainer } from './BottomNavBar';
 import { SplashContainer } from './Splash';
 import { MapView } from '../components/MapView';
-import { GithubButton } from '../models/Github';
 import { RiderItemList } from './RiderItemList';
 import { ErrorMessage } from './Error';
 
-import * as userAction from '../actionCreators/user';
 import * as rideActions from '../actionCreators/ride';
 
 function Main({
@@ -17,7 +15,7 @@ function Main({
   ride: { riders, isMatched, match, directions, matchFlag, },
   resetMatchFlag,
 }) {
-  if (matchFlag) setTimeout(function () {resetMatchFlag();}, 6000);
+  if (matchFlag) setTimeout(resetMatchFlag, 6000);
 
   return (
     <div className="MainApp">
@@ -58,16 +56,12 @@ function Main({
 };
 
 const mapStateToProps = function (state) {
-  // console.log('main container mapStateToProps state:', state.toJS());
+  // console.log('main container state:', state.toJS());
   return state.toJS();
 };
 
 const mapDispatchToProps = function (dispatch) {
   return {
-    onDirectionsResult(result) {
-      // dispatch(rideActions.setDirections(result));
-    },
-
     resetMatchFlag() {
       dispatch(rideActions.matchFlag(null));
     },

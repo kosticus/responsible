@@ -2,25 +2,26 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { MenuItem, Dropdown, Glyphicon } from 'react-bootstrap';
 
+import { Logo } from '../components/TopNavBar/Logo';
 import { TopNavBarRightButton } from '../components/TopNavBar/RightButton';
 
 import * as userAction from '../actionCreators/user';
 import * as rideAction from '../actionCreators/ride';
 import * as driveAction from '../actionCreators/drive';
 
-function TopNavBar({ onCancel, onEndDriver, onPickUp, onComplete, onProfileButtonClick,
-  onHomeClick, onFriendButtonClick, onSignoutButtonClick, ...props, }) {
-  let { ride, user } = props;
-
-  let endDriver = onEndDriver.bind(null, user.user_id);
-
+function TopNavBar({ ride, user, ...onClicks }) {
+  let match = ride.match;
+  let endDriver = onClicks.onEndDriver.bind(null, user.user_id);
   let cancelClick;
-  if (ride.match) {
-    cancelClick = onCancel.bind(null, ride.match.user_id, ride.ride_id);
-    onPickUp = onPickUp.bind(null, ride.match.user_id);
-    onComplete = onComplete.bind(null, user.user_id, ride.match.user_id, user.location);
+  let pickUp;
+  let complete;
+
+  if (match) {
+    cancelClick = onClicks.onCancel.bind(null, match.user_id, ride.ride_id);
+    pickUp = onClicks.onPickUp.bind(null, match.user_id);
+    complete = onClicks.onComplete.bind(null, user.user_id, match.user_id, user.location);
   } else
-    cancelClick = onCancel.bind(null, user.user_id, null);
+    cancelClick = onClicks.onCancel.bind(null, user.user_id, null);
 
   return (
     <div className="nav">
@@ -29,19 +30,25 @@ function TopNavBar({ onCancel, onEndDriver, onPickUp, onComplete, onProfileButto
           <Glyphicon glyph="align-justify" />
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <MenuItem eventKey="4.1" onClick={onProfileButtonClick}>Profile</MenuItem>
-          <MenuItem eventKey="4.2" onClick={onFriendButtonClick}>Friends</MenuItem>
+          <MenuItem eventKey="4.1" onClick={onClicks.onProfileButtonClick}>Profile</MenuItem>
+          <MenuItem eventKey="4.2" onClick={onClicks.onFriendButtonClick}>Friends</MenuItem>
           <MenuItem divider />
-          <MenuItem eventKey="4.3" onClick={onSignoutButtonClick}>Signout</MenuItem>
+          <MenuItem eventKey="4.3" onClick={onClicks.onSignoutButtonClick}>Signout</MenuItem>
         </Dropdown.Menu>
       </Dropdown>
-      <img src="http://s10.postimg.org/mnt5sb8bd/Drawing_11.png" className="mainTitle" width="27px" onClick={onHomeClick}/>
+      <img
+        src="http://s10.postimg.org/mnt5sb8bd/Drawing_11.png"
+        className="mainTitle"
+        width="27px"
+        onClick={onClicks.onHomeClick}
+      />
       <TopNavBarRightButton
-        {...props}
+        ride={ride}
+        user={user}
         onCancel={cancelClick}
         onEndDriver={endDriver}
-        onPickUp={onPickUp}
-        onComplete={onComplete}
+        onPickUp={pickUp}
+        onComplete={complete}
       />
     </div>
   );
@@ -53,7 +60,6 @@ const mapStateToProps = function (state) {
 
 // jscs:disable
 const mapDispatchToProps = function (dispatch) {
-  // TODO: determine function callbacks based on match here!
   return {
     onProfileButtonClick() {
       dispatch(push('/profile'))

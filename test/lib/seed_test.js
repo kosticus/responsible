@@ -56,6 +56,18 @@ Seed.user4 = {
   avatar: 'gumpshrimp.com',
 };
 
+Seed.user5 = {
+  username: 'BrockNoFriends',
+  password: 'brockhasnofriends',
+  name: 'Brock NoFriend',
+  address: '911 No Friends drive',
+  zipcode: 654321,
+  phone_number: '405-272-2272',
+  email: 'brocknofriends@hotmail.com',
+  emergency_contact: 'literally nobody',
+  avatar: 'nofriends.com',
+};
+
 Seed.makeUser = function (user) {
   return User.createUser(user);
 };
@@ -78,35 +90,34 @@ Seed.runner = function * () {
   const user2Id = yield Seed.makeUser(Seed.user2);
   const user3Id = yield Seed.makeUser(Seed.user3);
   const user4Id = yield Seed.makeUser(Seed.user4);
+  const user5Id = yield Seed.makeUser(Seed.user5);
 
-  console.log('user1Id:', user1Id);
-
-  const friend1 = yield Seed.makeFriend(user1Id[0].user_id, user3Id[0].user_id);
-  const friend2 = yield Seed.makeFriend(user2Id[0].user_id, user4Id[0].user_id);
+  const friend1 = yield Seed.makeFriend(user1Id.user_id, user3Id.user_id);
+  const friend2 = yield Seed.makeFriend(user2Id.user_id, user4Id.user_id);
 
   const rider1  = {
-    foreign_rider: user1Id[0].user_id,
+    foreign_rider: user1Id.user_id,
     location: '700 E. 8th street Austin, Tx',
   };
   const rider2  = {
-    foreign_rider: user2Id[0].user_id,
+    foreign_rider: user2Id.user_id,
     location: '1000 Freckle Face Weigh',
   };
   const riderId1 = yield Seed.makeRider(rider1);
   const riderId2 = yield Seed.makeRider(rider2);
 
   const driver1 = {
-    foreign_driver: user3Id[0].user_id,
+    foreign_driver: user3Id.user_id,
     location: '1826 Niblick Way',
   };
   const driver2 = {
-    foreign_driver: user4Id[0].user_id,
+    foreign_driver: user4Id.user_id,
     location: '100 Shark Lane',
   };
   const driverID1 = yield db('drivers').insert(driver1, 'driver_id');
   const driverID2 = yield db('drivers').insert(driver2, 'driver_id');
 
-  return { user1Id, user2Id, user3Id, user4Id,
+  return { user1Id, user2Id, user3Id, user4Id, user5Id,
     friend1, friend2, rider1, rider2,
     riderId1, riderId2, driver1, driver2,
     driverID1, driverID2,

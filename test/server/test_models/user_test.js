@@ -87,9 +87,25 @@ describe('User Models', function () {
       avatar: 'www.doncheen.com/image.png',
     };
     var user = yield User.createOrUpdateUser('username', updates);
-    console.log('~_~_~_USER',user)
     expect(user.user.name).to.equal('CheenusPriced');
     expect(user.user.email).to.equal('doncheendonchee@cheen.com');
+  });
+
+  it_('Should create or update user (create)', function * () {
+    var attrs = {
+      username: 'Jockabird',
+      password: 'abc123',
+      name: 'Grant Redfearn',
+      address: '700 Rock Ledge, Arcadia, OK',
+      zipcode: 73007,
+      phone_number: '405-513-4627',
+      email: 'grantredfearn@gmail.com',
+      emergency_contact: 'Jessica Redfearn',
+      avatar: 'gredfearn.wordpress.com',
+    };
+    var user = yield User.createOrUpdateUser('username', attrs);
+    expect(user.user.username).to.equal('Jockabird');
+    expect(user.user.name).to.equal('Grant Redfearn');
   });
 
 });

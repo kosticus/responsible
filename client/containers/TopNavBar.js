@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { MenuItem, Dropdown, Glyphicon } from 'react-bootstrap';
 
-import { Logo } from '../components/TopNavBar/Logo';
 import { TopNavBarRightButton } from '../components/TopNavBar/RightButton';
 
 import * as userAction from '../actionCreators/user';

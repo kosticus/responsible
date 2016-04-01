@@ -43,7 +43,7 @@ const mapDispatchToProps = function (dispatch) {
           dispatch(userAction.fetchUserInfo(toSend));
         });
       })
-      .fail(function (err) {
+      .fail(function (error) {
         console.log('Error signing in with Google', error);
       });
     },

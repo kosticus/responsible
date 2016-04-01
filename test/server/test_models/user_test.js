@@ -22,5 +22,10 @@ describe('User Models', function () {
     expect(users).to.have.length(4);
   });
 
-});
+  it_('Should find user by something', function * () {
+    var user = yield User.findUserBy('username', 'GregB');
+    expect(user.user_id).to.equal(SeedObj.user2Id.user_id);
+    expect(user).to.be.an.instanceOf(Object);
+  });
 
+});

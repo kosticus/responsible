@@ -51,4 +51,32 @@ describe('User Models', function () {
     expect(friends).to.have.length(1);
   });
 
+  it_('Should create user', function * () {
+    var attrs = {
+      username: 'Jockabird',
+      password: 'abc123',
+      name: 'Grant Redfearn',
+      address: '700 Rock Ledge, Arcadia, OK',
+      zipcode: 73007,
+      phone_number: '405-513-4627',
+      email: 'grantredfearn@gmail.com',
+      emergency_contact: 'Jessica Redfearn',
+      avatar: 'gredfearn.wordpress.com',
+    };
+
+    var user = yield User.createUser(attrs);
+    expect(user).to.not.equal(undefined);
+    expect(user.username).to.equal('Jockabird');
+  });
+
+  it_('Should update user', function * () {
+    var updates = {
+      username: 'Greg Brizzle',
+      email: 'GregBrady@marsha.com',
+    };
+    var user = yield User.updateUser(SeedObj.user2Id.user_id, updates);
+    expect(user.username).to.equal('Greg Brizzle');
+    expect(user.email).to.equal('GregBrady@marsha.com');
+  });
+
 });

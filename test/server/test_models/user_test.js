@@ -44,4 +44,11 @@ describe('User Models', function () {
     var user = yield User.deleteUser(SeedObj.user5Id.user_id);
     expect(user).to.equal(undefined);
   });
+
+  it_('Should find friends by user_id', function * () {
+    var friends = yield User.findFriends(SeedObj.user1Id.user_id);
+    expect(friends).to.be.instanceOf(Array);
+    expect(friends).to.have.length(1);
+  });
+
 });

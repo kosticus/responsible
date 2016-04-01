@@ -40,5 +40,3 @@ export const SplashContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Splash);
-
-// createDriver(true, user_id, location)

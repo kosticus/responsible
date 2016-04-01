@@ -29,10 +29,10 @@ export const socketActionMiddleware = (socket) => (store) => (next) => (action) 
 **/
 socket.on('connect', () => console.log('client socket connected'));
 
-socket.on('connect_error', function (error) {
+socket.on('connect_error', (error) => {
   console.log('error connecting client socket (did server shut down?)');
 });
 
-socket.on('connect_timeout', function (data) {
+socket.on('connect_timeout', (data) => {
   console.log('server socket connection attempt timed out!');
 });

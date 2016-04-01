@@ -21,7 +21,7 @@ function Profile({ user_id, friends, profile, onFriendClick, onAddressEdit,
     Sincerely,
       J$
   */
-  if (address) {setTimeout(function () {resetAddressFlag();}, 6000);}
+  if (address) setTimeout(resetAddressFlag, 6000);
 
   return (
     <div className="ProfileContainer">

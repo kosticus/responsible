@@ -2,9 +2,7 @@ import { GithubButton } from '../models/Github';
 import { GoogleButton } from '../models/Google';
 import { FacebookButton } from '../models/Facebook';
 
-function nullFn(e) { console.log('you clicked me ' + e.target.className); };
-
-export function LoginContainer(/* Do we need these? { facebook=nullFn, google=nullFn, }*/) {
+export function LoginContainer() {
   return (
     <div className='auth'>
       <FacebookButton />

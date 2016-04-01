@@ -13,9 +13,10 @@ function nullFn(e) { console.log('you clicked me ' + e.target.className); };
 export function List({ ride, user, onRiderClick, }) {
 
   let _riders = ride.riders.map(function (rider) {
-    return user.friends
-      .find((friend) => friend.user_id === rider.user_id)
-      .location = rider.location;
+    let friendRider = user.friends.find((friend) => friend.user_id === rider.user_id);
+    friendRider.location = rider.location;
+
+    return friendRider;
   });
 
   // let _riders = R.map(R.map(R.eqProps('user_id')))(user.friends, ride.riders);

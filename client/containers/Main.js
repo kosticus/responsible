@@ -15,7 +15,7 @@ function Main({
   ride: { riders, isMatched, match, directions, matchFlag, },
   resetMatchFlag,
 }) {
-  if (matchFlag) setTimeout(function () {resetMatchFlag();}, 6000);
+  if (matchFlag) setTimeout(resetMatchFlag, 6000);
 
   return (
     <div className="MainApp">
@@ -56,7 +56,7 @@ function Main({
 };
 
 const mapStateToProps = function (state) {
-  // console.log('main container mapStateToProps state:', state.toJS());
+  // console.log('main container state:', state.toJS());
   return state.toJS();
 };
 

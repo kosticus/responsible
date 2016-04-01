@@ -16,19 +16,19 @@ describe('Friends Models', function () {
   });
 
   it_('Should get friend IDs', function * () {
-    var friends = yield Friend.getFriendIds(SeedObj.user1Id[0].user_id);
-    expect(friends[0]).to.equal(SeedObj.user3Id[0].user_id);
+    var friends = yield Friend.getFriendIds(SeedObj.user1Id.user_id);
+    expect(friends[0]).to.equal(SeedObj.user3Id.user_id);
     expect(friends).to.be.an.instanceOf(Array);
   });
 
   it_('Should get drivers who are friends', function * () {
-    var drivers = yield Friend.getFriendDrivers(SeedObj.user1Id[0].user_id);
-    expect(drivers[0]).to.equal(SeedObj.user3Id[0].user_id);
+    var drivers = yield Friend.getFriendDrivers(SeedObj.user1Id.user_id);
+    expect(drivers[0]).to.equal(SeedObj.user3Id.user_id);
     expect(drivers).to.be.an.instanceOf(Array);
   });
 
-  it_('Should get riders who are friends', function * () {
-    var riders = yield Friend.getFriendRiders(SeedObj.user3Id[0].user_id);
+  xit_('Should get riders who are friends', function * () {
+    var riders = yield Friend.getFriendRiders(SeedObj.user3Id.user_id);
     expect(riders).to.have.length(1);
     expect(riders).to.be.an.instanceOf(Array);
   });

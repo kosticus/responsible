@@ -81,26 +81,26 @@ Seed.runner = function * () {
 
   console.log('user1Id:', user1Id);
 
-  const friend1 = yield Seed.makeFriend(user1Id[0].user_id, user3Id[0].user_id);
-  const friend2 = yield Seed.makeFriend(user2Id[0].user_id, user4Id[0].user_id);
+  const friend1 = yield Seed.makeFriend(user1Id.user_id, user3Id.user_id);
+  const friend2 = yield Seed.makeFriend(user2Id.user_id, user4Id.user_id);
 
   const rider1  = {
-    foreign_rider: user1Id[0].user_id,
+    foreign_rider: user1Id.user_id,
     location: '700 E. 8th street Austin, Tx',
   };
   const rider2  = {
-    foreign_rider: user2Id[0].user_id,
+    foreign_rider: user2Id.user_id,
     location: '1000 Freckle Face Weigh',
   };
   const riderId1 = yield Seed.makeRider(rider1);
   const riderId2 = yield Seed.makeRider(rider2);
 
   const driver1 = {
-    foreign_driver: user3Id[0].user_id,
+    foreign_driver: user3Id.user_id,
     location: '1826 Niblick Way',
   };
   const driver2 = {
-    foreign_driver: user4Id[0].user_id,
+    foreign_driver: user4Id.user_id,
     location: '100 Shark Lane',
   };
   const driverID1 = yield db('drivers').insert(driver1, 'driver_id');

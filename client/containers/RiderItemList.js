@@ -11,17 +11,11 @@ import * as rideActions from '../actionCreators/ride';
 function nullFn(e) { console.log('you clicked me ' + e.target.className); };
 
 export function List({ ride, user, onRiderClick, }) {
-  let _riders = [];
 
-  ride.riders.forEach(function (rider) {
-    user.friends.forEach(function (friend) {
-      if (friend.user_id === rider.user_id) {
-        let newRider = friend;
-        newRider.location = rider.location;
-
-        _riders.push(newRider);
-      }
-    });
+  let _riders = ride.riders.map(function (rider) {
+    return user.friends
+      .find((friend) => friend.user_id === rider.user_id)
+      .location = rider.location;
   });
 
   // let _riders = R.map(R.map(R.eqProps('user_id')))(user.friends, ride.riders);

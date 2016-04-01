@@ -28,4 +28,10 @@ describe('User Models', function () {
     expect(user).to.be.an.instanceOf(Object);
   });
 
+  it_('Should find user by ID', function * () {
+    var user = yield User.findUserById(SeedObj.user3Id.user_id);
+    expect(user.username).to.equal('CharlieBrizzown');
+    expect(user).to.be.an.instanceOf(Object);
+  });
+
 });

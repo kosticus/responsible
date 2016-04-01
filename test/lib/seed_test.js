@@ -79,8 +79,6 @@ Seed.runner = function * () {
   const user3Id = yield Seed.makeUser(Seed.user3);
   const user4Id = yield Seed.makeUser(Seed.user4);
 
-  console.log('user1Id:', user1Id);
-
   const friend1 = yield Seed.makeFriend(user1Id.user_id, user3Id.user_id);
   const friend2 = yield Seed.makeFriend(user2Id.user_id, user4Id.user_id);
 

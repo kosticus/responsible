@@ -34,4 +34,9 @@ describe('User Models', function () {
     expect(user).to.be.an.instanceOf(Object);
   });
 
+  it_('Should find user id by name', function * () {
+    var user = yield User.findUserIdByName('don cheenus');
+    expect(user.user_id).to.equal(SeedObj.user1Id.user_id);
+    expect(user).to.be.instanceOf(Object);
+  });
 });

@@ -79,4 +79,17 @@ describe('User Models', function () {
     expect(user.email).to.equal('GregBrady@marsha.com');
   });
 
+  it_('Should create or update user (update)', function * () {
+    var updates = {
+      username: 'Cheenus',
+      name: 'CheenusPriced',
+      email: 'doncheendonchee@cheen.com',
+      avatar: 'www.doncheen.com/image.png',
+    };
+    var user = yield User.createOrUpdateUser('username', updates);
+    console.log('~_~_~_USER',user)
+    expect(user.user.name).to.equal('CheenusPriced');
+    expect(user.user.email).to.equal('doncheendonchee@cheen.com');
+  });
+
 });

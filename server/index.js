@@ -1,13 +1,9 @@
 require('./server-helpers');
-var browserify   = require('browserify-middleware');
 var express      = require('express');
-var Reactify     = require('reactify');
 var Path         = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
-var session      = require('express-session');
 var morgan       = require('morgan');
-var db           = require(__dirname + '/../lib/db');
 
 var routes       = express.Router();
 

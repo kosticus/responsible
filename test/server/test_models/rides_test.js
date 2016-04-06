@@ -82,4 +82,29 @@ describe('Rides Models', function () {
     assert.typeOf(riders[0], 'object');
   });
 
+  it_('Get rider in rider table by rider id', function * () {
+    var rider = yield Ride.getRiderById(SeedObj.user1Id.user_id);
+    var local = JSON.parse(rider.location);
+    assert.typeOf(rider, 'object');
+    assert.typeOf(rider.foreign_rider, 'number');
+    assert.typeOf(local, 'object');
+    assert.typeOf(local.lat, 'number');
+  });
+
+  it_('Create a new rider in the rider table', function * () {
+    var attrs = {
+      foreign_rider: SeedObj.user5Id.user_id,
+      location: JSON.stringify({ lat: 30.263619, lng: -97.737909 }),
+    };
+
+    var rider = yield Ride.createRider(attrs);
+    var local = JSON.parse(rider.location);
+
+    assert.typeOf(rider, 'object');
+    assert.typeOf(rider.foreign_rider, 'number');
+    assert.typeOf(local, 'object');
+    assert.typeOf(local.lng, 'number');
+    assert.typeOf(local.lat, 'number');
+  });
+
 });

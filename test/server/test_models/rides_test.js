@@ -41,6 +41,7 @@ describe('Rides Models', function () {
     assert.typeOf(ride, 'object');
     assert.typeOf(ride.ride_id, 'number');
     assert.typeOf(ride.ride_driver, 'number');
+    assert.typeOf(ride.ride_rider, 'number');
     assert.typeOf(ride.completed, 'boolean');
     assert.typeOf(ride.canceled, 'boolean');
   });
@@ -58,6 +59,27 @@ describe('Rides Models', function () {
     assert.lengthOf(getRide, 0);
   });
 
+  it_('Get Ride by Id', function * () {
+    var attrs = {
+      ride_driver: SeedObj.driver2.foreign_driver,
+      ride_rider: SeedObj.rider2.foreign_rider,
+    };
 
+    var ride = yield Ride.createRide(attrs);
+    var getId = yield Ride.getRideById(ride.ride_id);
+    assert.typeOf(getId, 'object');
+    assert.typeOf(getId.ride_id, 'number');
+    assert.typeOf(getId.ride_driver, 'number');
+    assert.typeOf(getId.ride_rider, 'number');
+    assert.typeOf(getId.completed, 'boolean');
+    assert.typeOf(getId.canceled, 'boolean');
+  });
+
+  it_('Get all Riders in riders table', function * () {
+    var riders = yield Ride.getRiders();
+    assert.typeOf(riders, 'array');
+    assert.lengthOf(riders, 2);
+    assert.typeOf(riders[0], 'object');
+  });
 
 });

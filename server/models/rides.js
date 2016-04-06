@@ -35,6 +35,7 @@ Ride.deleteRide = function (rideId) {
 
 Ride.getRideById = function (id) {
   return db('rides').where({ ride_id: id })
+    .then(first)
     .catch(reportError('error getting ride by id'));
 };
 

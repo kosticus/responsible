@@ -27,7 +27,7 @@ describe('Rides Models', function () {
     assert.typeOf(rides.ride_rider, 'number');
   });
 
-  it_('get all rides in ride table', function * () {
+  it_('Get all rides in ride table', function * () {
     var attrs = {
       ride_driver: SeedObj.driver1.foreign_driver,
       ride_rider: SeedObj.rider1.foreign_rider,
@@ -44,6 +44,20 @@ describe('Rides Models', function () {
     assert.typeOf(ride.completed, 'boolean');
     assert.typeOf(ride.canceled, 'boolean');
   });
+
+  it_('Delete a Ride by rideId', function * () {
+    var attrs = {
+      ride_driver: SeedObj.driver1.foreign_driver,
+      ride_rider: SeedObj.rider1.foreign_rider,
+    };
+
+    var ride = yield Ride.createRide(attrs);
+    yield Ride.deleteRide(ride.ride_id);
+    var getRide = yield Ride.getRides();
+    assert.typeOf(getRide, 'array');
+    assert.lengthOf(getRide, 0);
+  });
+
 
 
 });

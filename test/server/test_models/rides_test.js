@@ -107,4 +107,33 @@ describe('Rides Models', function () {
     assert.typeOf(local.lat, 'number');
   });
 
+  it_('Should delete rider from rider table', function * () {
+    var riders1 = yield Ride.getRiders();
+    var rider1Id = riders1[0].user_id;
+    assert.typeOf(riders1, 'array');
+    assert.lengthOf(riders1, 2);
+    assert.typeOf(riders1[0], 'object');
+    assert.equal(riders1[0].user_id, rider1Id);
+
+    yield Ride.deleteRider(rider1Id);
+    var riders2 = yield Ride.getRiders();
+    assert.typeOf(riders2, 'array');
+    assert.lengthOf(riders2, 1);
+    assert.typeOf(riders2[0], 'object');
+    assert.notEqual(riders2[0].user_id, rider1Id);
+  });
+
+  it_('Get all user ids from drivers table', function * () {
+    var drivers = yield Ride.getDrivers();
+    assert.typeOf(drivers, 'array');
+    assert.lengthOf(drivers, 2);
+    assert.typeOf(drivers[0], 'number');
+  });
+
+  it_('Get a single driver by user_id', function * () {
+    var driver = yield Ride.getDriverById(SeedObj.user3Id.user_id);
+    assert.typeOf(driver, 'object');
+    assert.equal(driver.foreign_driver, SeedObj.user3Id.user_id);
+    console.log('~_~_~_~_~', driver);
+  });
 });

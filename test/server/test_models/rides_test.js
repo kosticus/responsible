@@ -134,6 +134,51 @@ describe('Rides Models', function () {
     var driver = yield Ride.getDriverById(SeedObj.user3Id.user_id);
     assert.typeOf(driver, 'object');
     assert.equal(driver.foreign_driver, SeedObj.user3Id.user_id);
-    console.log('~_~_~_~_~', driver);
+  });
+
+  it_('Can create a new driver', function * () {
+    var attrs = {
+      userId: SeedObj.user5Id.user_id,
+      location: { lat: 30.263619, lng: -97.737909 },
+    };
+
+    var driver = yield Ride.createDriver(attrs);
+    assert.typeOf(driver, 'object');
+
+    var getDrivers = yield Ride.getDrivers();
+    assert.typeOf(getDrivers, 'array');
+    assert.lengthOf(getDrivers, 3);
+    assert.equal(getDrivers[2], SeedObj.user5Id.user_id);
+  });
+
+  it_('Delete driver by user id', function * () {
+    var attrs = {
+      userId: SeedObj.user5Id.user_id,
+      location: { lat: 30.263619, lng: -97.737909 },
+    };
+    var driver = yield Ride.createDriver(attrs);
+    assert.typeOf(driver, 'object');
+    assert.equal(driver.foreign_driver, SeedObj.user5Id.user_id);
+
+    yield Ride.deleteDriver(SeedObj.user5Id.user_id);
+    var getDeleted = yield Ride.getDriverById(SeedObj.user5Id.user_id);
+    assert.equal(getDeleted, undefined);
+  });
+
+  it_('Delete driver and rider by user ids', function * () {
+    var drivers = yield Ride.getDrivers();
+    var riders = yield Ride.getRiders();
+    expect(drivers).to.be.instanceOf(Array);
+    expect(drivers).to.have.length(2);
+    expect(riders).to.be.instanceOf(Array);
+    expect(riders).to.have.length(2);
+
+    yield Ride.deleteRiderAndDriver(SeedObj.user1Id.user_id, SeedObj.user3Id.user_id);
+    var drivers = yield Ride.getDrivers();
+    var riders = yield Ride.getRiders();
+    expect(drivers).to.be.instanceOf(Array);
+    expect(drivers).to.have.length(1);
+    expect(riders).to.be.instanceOf(Array);
+    expect(riders).to.have.length(1);
   });
 });

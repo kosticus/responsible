@@ -10,10 +10,6 @@ module.exports = Ride;
 */
 
 // Get all rides
-Ride.getRides = function () {
-  return db('rides').select('*')
-    .catch(reportError('error getting all rides'));
-};
 
 // Create A ride
 Ride.createRide = function (attrs) {
@@ -26,6 +22,11 @@ Ride.createRide = function (attrs) {
     });
 };
 
+Ride.getRides = function () {
+  return db('rides').select('*')
+    .catch(reportError('error getting all rides'));
+};
+
 // Delete A Ride
 Ride.deleteRide = function (rideId) {
   return db('rides').where({ ride_id: rideId }).del()
@@ -34,6 +35,7 @@ Ride.deleteRide = function (rideId) {
 
 Ride.getRideById = function (id) {
   return db('rides').where({ ride_id: id })
+    .then(first)
     .catch(reportError('error getting ride by id'));
 };
 

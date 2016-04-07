@@ -1,11 +1,10 @@
 require('../../test-helper');
 const db = require('../../../lib/db');
-const request = require('supertest');
+const assert = require('chai').assert;
 const routes = require(__server + '/index.js');
 const dbCleaner = require('knex-cleaner');
 const Friend = require(__models + '/friends');
 const Seed = require('../../lib/seed_test');
-
 var SeedObj = null;
 
 describe('Friends Models', function () {
@@ -30,7 +29,8 @@ describe('Friends Models', function () {
 
   it_('Should tell if users are friends', function * () {
     var test = yield Friend.usersAreFriends(SeedObj.user1Id.user_id, SeedObj.user3Id.user_id);
-    expect(test).to.equal(true);
+    assert.equal(test, true);
+    assert.typeOf(test, 'boolean');
   });
 
   it_('Should find and add friend', function * () {

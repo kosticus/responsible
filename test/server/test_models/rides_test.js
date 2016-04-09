@@ -9,7 +9,7 @@ const Seed = require('../../lib/seed_test');
 var SeedObj = null;
 
 // Cool! Why'd you switch to using assert here?
-  // OoooOOoohh! awesome! Node's built-in assert package!
+// OoooOOoohh! awesome! Node's built-in assert package!
 
 describe('Rides Models', function () {
 

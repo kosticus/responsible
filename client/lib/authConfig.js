@@ -26,6 +26,8 @@ export const authMiddleware = store => next => action => {
 
 function hasAccessToken(auths) {
   let verified = false;
+  
+  // TODO: styling, but rather use Array.any or Array.some
   for (const strategy of auths) {if (strategy.access_token) verified = true;
   }
 

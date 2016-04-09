@@ -35,7 +35,7 @@ describe('User Models', function () {
     expect(user.user_id).to.equal(SeedObj.user2Id.user_id);
     expect(user).to.be.an.instanceOf(Object);
 
-    // - if no users exists with the username we're looking for 
+    // - if no users exists with the username we're looking for
     // - if the column to verify by doesn't exist
   });
 
@@ -63,11 +63,15 @@ describe('User Models', function () {
   });
 
   it_('Should find friends by user_id', function * () {
+    // - if no friends
+
     var friends = yield User.findFriends(SeedObj.user1Id.user_id);
     expect(friends).to.be.instanceOf(Array);
+    
+    // does this make the test too reliant on the seed files? How can we otherwise
+    // verify but with a less particular attribute.. like name of first user
+    // -- uncertain
     expect(friends).to.have.length(1);
-
-    // - if no friends
   });
 
   it_('Should create user', function * () {

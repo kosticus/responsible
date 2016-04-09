@@ -142,32 +142,3 @@ User.createOrUpdateUser = function (verifyBy, attrs) {
     })
     .catch(reportError('ERROR doing something creating/updating user. investigate'));
 };
-
-//
-// uncomment to see how/if createOrUpdateUser is working.
-//
-
-// let verifyBy = 'zipcode';
-// let OAuthUserObj1 = {
-//   zipcode: 53240,
-//   username: 'Ronnie Tu-tu',
-//   email: 'rick@roll.groove',
-//   avatar: 'imaginaryMindscape',
-// };
-// let OAuthUserObj2 = {
-//   zipcode: 22222,
-//   username: 'Jalapeno on a Stick',
-//   email: 'just send it up my butt',
-//   avatar: 'master hand',
-//   first_name: 'Jap',
-// };
-
-// User.createOrUpdateUser(verifyBy, OAuthUserObj1)
-//   .then(function (data) {
-//     console.log('updated user data:', data);
-//   });
-
-// User.createOrUpdateUser(verifyBy, OAuthUserObj2)
-//   .then(function (data) {
-//     console.log('new user data:', data);
-//   });

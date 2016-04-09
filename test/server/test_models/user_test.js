@@ -8,6 +8,10 @@ const Seed = require('../../lib/seed_test');
 
 var SeedObj = null;
 
+// Hey Grant! Starting here :~)
+
+// sometimes I've written comments, others just possible edge cases
+
 describe('User Models', function () {
 
   beforeEach_(function * () {
@@ -19,6 +23,10 @@ describe('User Models', function () {
     var users = yield User.getUsers();
     expect(users[0].user_id).to.equal(SeedObj.user1Id.user_id);
     expect(users).to.be.an.instanceOf(Array);
+
+    // Might not be necessary - I think the above assertions verify it worked
+    // It also makes this test susceptible to changes in the seed file
+    // but if they changed it wouldn't necessarily mean the model failed
     expect(users).to.have.length(5);
   });
 
@@ -26,29 +34,40 @@ describe('User Models', function () {
     var user = yield User.findUserBy('username', 'GregB');
     expect(user.user_id).to.equal(SeedObj.user2Id.user_id);
     expect(user).to.be.an.instanceOf(Object);
+
+    // - if no users exists with the username we're looking for 
+    // - if the column to verify by doesn't exist
   });
 
   it_('Should find user by ID', function * () {
     var user = yield User.findUserById(SeedObj.user3Id.user_id);
     expect(user.username).to.equal('CharlieBrizzown');
     expect(user).to.be.an.instanceOf(Object);
+
+    // - if no user exists with the requested id
   });
 
   it_('Should find user id by name', function * () {
     var user = yield User.findUserIdByName('don cheenus');
     expect(user.user_id).to.equal(SeedObj.user1Id.user_id);
     expect(user).to.be.instanceOf(Object);
+
+    // - if no user exists with the sought name
   });
 
   it_('Should delete user by Id', function * () {
     var user = yield User.deleteUser(SeedObj.user5Id.user_id);
     expect(user).to.equal(undefined);
+
+    // - does it throw up if the user didn't exist anyway? Should it?
   });
 
   it_('Should find friends by user_id', function * () {
     var friends = yield User.findFriends(SeedObj.user1Id.user_id);
     expect(friends).to.be.instanceOf(Array);
     expect(friends).to.have.length(1);
+
+    // - if no friends
   });
 
   it_('Should create user', function * () {
@@ -67,6 +86,9 @@ describe('User Models', function () {
     var user = yield User.createUser(attrs);
     expect(user).to.not.equal(undefined);
     expect(user.username).to.equal('Jockabird');
+
+    // - errors thrown if a required field isn't provided?
+    //    userful: chaijs.com/api/bdd/#method_throw
   });
 
   it_('Should update user', function * () {
@@ -89,6 +111,9 @@ describe('User Models', function () {
     var user = yield User.createOrUpdateUser('username', updates);
     expect(user.user.name).to.equal('CheenusPriced');
     expect(user.user.email).to.equal('doncheendonchee@cheen.com');
+
+    // - how do we handle if updated field is invalid?
+    //    i.e. name becomes an integer instead of varchar? 
   });
 
   it_('Should create or update user (create)', function * () {

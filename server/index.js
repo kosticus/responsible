@@ -1,7 +1,6 @@
 require('./server-helpers');
 var express      = require('express');
 var Path         = require('path');
-var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var morgan       = require('morgan');
 
@@ -19,11 +18,6 @@ routes.get('/app-bundle.js', function (req, res) {
   res.sendFile(appBundle + '/app-bundle.js');
 });
 
-//Example test route for test
-routes.get('/api/tags-example', function (req, res) {
-  res.send(['node', 'express', 'browserify', 'react', 'react-dom']);
-});
-
 if (process.env.NODE_ENV !== 'test') {
   var app = express();
   var server = require('http').createServer(app);
@@ -37,9 +31,6 @@ if (process.env.NODE_ENV !== 'test') {
   //parse request body as JSON
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
-
-  //for cookies
-  app.use(cookieParser());
 
   //Mounting router mount
   app.use('/', routes);

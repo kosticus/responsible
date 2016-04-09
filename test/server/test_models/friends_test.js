@@ -43,8 +43,8 @@ describe('Friends Models', function () {
     var test = yield Friend.usersAreFriends(SeedObj.user1Id.user_id, SeedObj.user3Id.user_id);
 
     // cool - assert!
-    assert.equal(test, true); // chai options: be.true
-    assert.typeOf(test, 'boolean'); // chai options: be.a('boolean') or be.an.instanceof(Boolean)
+    assert.equal(test, true); // chai options: be.true and be.ok
+    assert.typeOf(test, 'boolean'); // chai options: be.a('boolean') and be.an.instanceof(Boolean)
 
     // - if users aren't friends
   });

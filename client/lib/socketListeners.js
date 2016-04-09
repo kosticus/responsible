@@ -71,7 +71,5 @@ export function configureListeners(socket) {
     console.log("We've been dropped off!");
     dispatch(rideActions.droppedOff());
   });
-
-  // dev only: so that we can use the not-logged-in initial state user
-  // socket.emit('join', { entry: { user_id: 99 } });
+  
 };

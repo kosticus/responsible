@@ -9,7 +9,6 @@ module.exports = Ride;
 * THESE ARE RIDES MODELS
 */
 
-// Get all rides
 
 // Create A ride
 Ride.createRide = function (attrs) {
@@ -22,6 +21,7 @@ Ride.createRide = function (attrs) {
     });
 };
 
+// Get all rides
 Ride.getRides = function () {
   return db('rides').select('*')
     .catch(reportError('error getting all rides'));

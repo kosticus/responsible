@@ -3,8 +3,8 @@ import { push } from 'react-router-redux';
 import * as userAction from '../actionCreators/user';
 
 export const authMiddleware = store => next => action => {
-  var github = OAuth.create('github');
-  var google = OAuth.create('google');
+  const github = OAuth.create('github');
+  const google = OAuth.create('google');
   const auths = [github, google];
 
   if (!hasAccessToken(auths)) {

@@ -1,11 +1,10 @@
-var OAuth = require('../lib/oauth.min.js').OAuth;
-var OAuthUser = require('../lib/oauth.min.js').User;
+import { OAuth, OAuthUser} from '../lib/oauth.min.js';
 import { push } from 'react-router-redux';
 import * as userAction from '../actionCreators/user';
 
 export const authMiddleware = store => next => action => {
-  var github = OAuth.create('github');
-  var google = OAuth.create('google');
+  const github = OAuth.create('github');
+  const google = OAuth.create('google');
   const auths = [github, google];
 
   if (!hasAccessToken(auths)) {
@@ -25,13 +24,7 @@ export const authMiddleware = store => next => action => {
 };
 
 function hasAccessToken(auths) {
-  let verified = false;
-  
-  // TODO: styling, but rather use Array.any or Array.some
-  for (const strategy of auths) {if (strategy.access_token) verified = true;
-  }
-
-  return verified;
+  return auths.some((strategy) => strategy.access_token);
 }
 
 function isLoginRedirect(action) {

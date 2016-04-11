@@ -34,7 +34,7 @@ export function End() {
 
 
   // jscs:enable
-  var randomIndex = Math.floor(Math.random() * facts.length);
+  const randomIndex = Math.floor(Math.random() * facts.length);
   return (
       <div className='duiFacts'>
         <Panel header={title}>

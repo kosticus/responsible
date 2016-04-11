@@ -1,4 +1,4 @@
-import { UserImage } from '../../UserImage';
+import { UserImage } from '../UserImage';
 
 export function FriendItem({ avatar, name, onFriendItemClick }) {
   return (

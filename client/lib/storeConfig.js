@@ -37,7 +37,7 @@ import { routerMiddleware } from 'react-router-redux';
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 
-import { socket, socketActionMiddleware } from './socketConfig';
+import { socket, socketMiddleware } from './socketConfig';
 import { authMiddleware } from './authConfig';
 
 import routeReducer from '../reducers/route';
@@ -60,7 +60,7 @@ export const store = createStore(
   applyMiddleware(
     authMiddleware,
     historyMiddleware,
-    socketActionMiddleware(socket),
+    socketMiddleware(socket),
     thunkMiddleware
   )
 );

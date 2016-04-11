@@ -1,4 +1,3 @@
-import { Link } from 'react-router';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 
 // This function will dispatch action to change to Profile View

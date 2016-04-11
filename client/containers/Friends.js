@@ -5,7 +5,7 @@ import { Alert, ButtonInput } from 'react-bootstrap';
 import * as userAction from '../actionCreators/user';
 
 import { TopNavBarContainer } from './TopNavBar';
-import { FriendItemList } from '../components/TopNavBar/Friends/FriendItemList';
+import { FriendItemList } from '../components/Friends/FriendItemList';
 
 function nullFn(e) { console.log('you clicked me ' + e.target.className); };
 

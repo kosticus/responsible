@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { curry } from 'ramda';
 
 import { TopNavBarContainer } from './TopNavBar';
-import { FriendItemList } from '../components/TopNavBar/Friends/FriendItemList';
 import { UserImage } from '../components/UserImage';
-import { ProfileItemList } from '../components/Profile/ProfileItemList';
 import { Alert } from 'react-bootstrap';
 import * as userAction from '../actionCreators/user';
 
@@ -28,14 +26,14 @@ function Profile({ user_id, friends, profile, onFriendClick, onAddressEdit,
       <TopNavBarContainer />
       {
         !profile.address ?
-        <Alert bsStyle="warning"dismissAfter={5000}>
-        <h4>Please add your address</h4>
-        </Alert>
-        : address ?
-        <Alert bsStyle="success"dismissAfter={5000}>
-        <h4>You successfully added your address: {address}</h4>
-        </Alert>
-        : <div />
+          <Alert bsStyle="warning"dismissAfter={5000}>
+          <h4>Please add your address</h4>
+          </Alert>
+          : address ?
+            <Alert bsStyle="success"dismissAfter={5000}>
+            <h4>You successfully added your address: {address}</h4>
+            </Alert>
+            : <div />
       }
       <div className="profilePortraitContainer">
       <center>
@@ -80,6 +78,7 @@ const mapDispatchToProps = function (dispatch) {
 
       dispatch(userAction.changeAddress(user_id, newAddress));
     }),
+
     editAddress() {
       dispatch(userAction.changingAddress());
     },

@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { ConfirmLocationButton } from './ConfirmLocationButton';
 import { Chat } from '../../containers/Chat';
 
-import * as rideAction from '../../actionCreators/ride';
-
 export function BottomButton({ isWaitingForMatch, isConfirmed, isMatched, isPickedUp,
   match, messages, user_id, friends, isDriver, confirmLocation, }) {
 

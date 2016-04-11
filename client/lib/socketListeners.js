@@ -1,5 +1,6 @@
-import { store } from './storeConfig';
 import { prop } from 'ramda';
+
+import { store } from './storeConfig';
 
 import * as chatActions from '../actionCreators/chat';
 import * as rideActions from '../actionCreators/ride';
@@ -19,19 +20,19 @@ export function configureListeners(socket) {
     dispatch(chatActions.addMessage(data));
   });
 
-  // expects: { user_id, location }
+  // expects data: { user_id, location }
   socket.on('add_rider', function (data) {
     console.log('received a new friend rider!', data);
     dispatch(rideActions.addRider(data));
   });
 
-  // expects: { avatar, user_id, name, address }
+  // expects data: { avatar, user_id, name, address }
   socket.on('new_friend', function (data) {
     console.log('Someone likes us!', data);
     dispatch(userActions.receiveFriendInfo(data));
   });
 
-  // Note: does not actually remove rider BUT SHOULD
+  // TODO: does not actually remove rider BUT SHOULD
   // Event listened to by drivers - alerts them if their current ride is cancelled.
   socket.on('cancel_ride', function (data) {
     console.log('received socket event to cancel ongoing ride', data);
@@ -47,11 +48,12 @@ export function configureListeners(socket) {
   });
 
   // received on a partner emitting an updated location
-  // data: { entry: { lat, lng } }
+  // expects data: { entry: { lat, lng } }
   socket.on('new_location', function (data) {
     dispatch(rideActions.setMatchLocation(data));
   });
 
+  // A driver has decided to give us a ride.
   // expects data: { match: { user_id, location }}
   socket.on('confirm_driver', function (data) {
     console.log("We've found a driver!", data);
@@ -62,11 +64,13 @@ export function configureListeners(socket) {
     dispatch(rideActions.matchRider(user_id, friendIds, data));
   });
 
+  // Riders has been picked up by driver
   socket.on('picked_up', function () {
     console.log("We've been picked up!");
     dispatch(rideActions.pickedUp());
   });
 
+  // Rider has been dropped off by driver
   socket.on('dropped_off', function () {
     console.log("We've been dropped off!");
     dispatch(rideActions.droppedOff());

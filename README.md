@@ -24,7 +24,7 @@ A safe driving app for friends
 ```sh
   npm run dev-server
 ```
-* Open your browser to [localhost:1337](localhost:1337)
+* Open your browser to [localhost:1337](http://localhost:1337/)
 
 
 ## Primary technologies

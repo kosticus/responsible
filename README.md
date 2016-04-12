@@ -2,6 +2,14 @@
 A safe driving app for friends 
 
 ## Primary technologies
+
+| Clientside | Serverside | Utility |
+|--------:|--------:|--------:|
+| React | Node | Mocha |
+| Redux | PostgreSQL | Webpack |
+| Immutable | Express | Knex |
+| Socket.io | Socket.io | Ramda |
+
   * Clientside
     * __React__
     * __Redux__
@@ -12,6 +20,11 @@ A safe driving app for friends
     * __PostgreSQL__
     * __Express__
     * __Socket.io__
+  * Utility
+    * __Mocha__
+    * __Webpack__
+    * __Knex__
+    * __Ramda__
 
 ## Development setup and usage
 
@@ -19,7 +32,7 @@ A safe driving app for friends
 
   First, make sure you've got postgres installed. If the 'postgres' terminal command is not recognized, ask Google how to install PostgreSQL.
 
-* Clone or fork this repository.
+* Clone or fork this repository
 ```sh
   git clone https://github.com/ScriptInvaders/responsible/
 ```

@@ -2,14 +2,6 @@
 A safe driving app for friends 
 
 ## Primary technologies
-
-| Clientside | Serverside | Utility |
-|--------:|--------:|--------:|
-| React | Node | Mocha |
-| Redux | PostgreSQL | Webpack |
-| Immutable | Express | Knex |
-| Socket.io | Socket.io | Ramda |
-
   * Clientside
     * __React__
     * __Redux__

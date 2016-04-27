@@ -45,6 +45,12 @@ ReactDOM.render(
   document.getElementById('app')
 );
 
+/*
+
+    TODO: refactor this into a separate component
+*/
+
+
 import * as userActions from './actionCreators/user';
 import * as rideActions from './actionCreators/ride';
 

@@ -1,7 +1,14 @@
 /**
     Hello and welcome to Fleet's frontend codebase.
 
+    *See client/lib/storeConfig.js for Redux documentation.
 
+    This is the entry point of our primarily single-paged application and performs
+    most high-level configuration of our infrastructure such as initializing communication
+    with our server and syncronization of app history with browser history.
+    
+    Note: The feature beyond line 50, geoWatch, was a late-stage add-in and would better
+    be implemented as a web or service worker.
 **/
 
 import React from 'react';
@@ -46,10 +53,8 @@ ReactDOM.render(
 );
 
 /*
-
-    TODO: refactor this into a separate component
+    TODO: refactor this into a separate component or web worker
 */
-
 
 import * as userActions from './actionCreators/user';
 import * as rideActions from './actionCreators/ride';

@@ -3,13 +3,15 @@ import { store } from './storeConfig';
 import * as userActions from '../actionCreators/user';
 import * as rideActions from '../actionCreators/ride';
 
-export default navigator.geolocation.watchPosition.bind(navigator.geolocation, updateLocation);
+// @return ID<Number> of the watcher for later removal.
+export default function initLocationWatcher() {
+  navigator.geolocation.getCurrentPosition(updateLocation);
+
+  return navigator.geolocation.watchPosition(updateLocation);
+}
 
 // index.html exposes google
 const DirectionsService = new google.maps.DirectionsService();
-
-// fetch initial device position.
-navigator.geolocation.getCurrentPosition(updateLocation);
 
 function updateLocation({ coords /* = noCoordError() */ }) {
   if (!'geolocation' in navigator) {
@@ -26,12 +28,11 @@ function updateLocation({ coords /* = noCoordError() */ }) {
     lat: coords.latitude,
     lng: coords.longitude
   };
-  console.log('new location!:', location);
 
   const ride = store.getState().get('ride').toJS();
   if (!ride.match) {
     store.dispatch(userActions.setLocation(location));
-    console.log(userActions.setLocation(location));
+    console.log('setLocation action:', userActions.setLocation(location));
 
     // const user = store.getState().get('user').toJS();
     // console.log('user:', user);

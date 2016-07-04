@@ -29,7 +29,6 @@ import { LoginContainer } from './containers/Login';
 
 import { socket } from './lib/socketConfig';
 import { configureListeners } from './lib/socketListeners';
-import geoWatch from './lib/locationWatcher';
 
 configureListeners(socket);
 
@@ -53,4 +52,7 @@ ReactDOM.render(
   document.getElementById('app')
 );
 
-geoWatch();
+console.warn('initializing locationWatcher');
+// the location watcher relies on Redux being fully configured and so is way down here.
+import initLocationWatcher from './lib/locationWatcher';
+initLocationWatcher();

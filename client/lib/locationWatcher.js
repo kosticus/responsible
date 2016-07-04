@@ -3,22 +3,24 @@ import { store } from './storeConfig';
 import * as userActions from '../actionCreators/user';
 import * as rideActions from '../actionCreators/ride';
 
+export default navigator.geolocation.watchPosition.bind(navigator.geolocation, updateLocation);
+
 // index.html exposes google
 const DirectionsService = new google.maps.DirectionsService();
 
-export default navigator.geolocation.watchPosition.bind(null, updateLocation);
+// fetch initial device position.
 navigator.geolocation.getCurrentPosition(updateLocation);
 
-function updateLocation({ coords }) {
+function updateLocation({ coords /* = noCoordError() */ }) {
   if (!'geolocation' in navigator) {
     console.error('Device location is not available on this browser');
     return;
   }
+
   if (!coords) {
-    console.error('Device did not provide location information. Please report to team :~)');
+    console.error('Device did not provide location information. Please report to the team :~)');
+    return;
   }
-
-
 
   const location = {
     lat: coords.latitude,

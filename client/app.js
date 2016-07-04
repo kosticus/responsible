@@ -6,9 +6,9 @@
     This is the entry point of our primarily single-paged application and performs
     most high-level configuration of our infrastructure such as initializing communication
     with our server and syncronization of app history with browser history.
-    
-    Note: The feature beyond line 50, geoWatch, was a late-stage add-in and would better
-    be implemented as a web or service worker.
+
+    The technologies we use to support our front-end include React, Redux,
+    Immutable, React-Router, WebSockets, 
 **/
 
 import React from 'react';
@@ -31,6 +31,7 @@ import { socket } from './lib/socketConfig';
 import { configureListeners } from './lib/socketListeners';
 import geoWatch from './lib/locationWatcher';
 
+// console.log(geoWatch);
 geoWatch();
 configureListeners(socket);
 

@@ -8,7 +8,7 @@
     with our server and syncronization of app history with browser history.
 
     The technologies we use to support our front-end include React, Redux,
-    Immutable, React-Router, WebSockets, 
+    Immutable, and WebSockets.
 **/
 
 import React from 'react';

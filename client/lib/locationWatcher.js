@@ -1,3 +1,10 @@
+/*
+  This file defines a utility for updating the application with the client's
+  location information. It maintains the original structure of the creator and
+  has been only slightly reformatted so that we can abstract the feature out from
+  the ../app.js entry point of the application.
+*/
+
 import { store } from './storeConfig';
 
 import * as userActions from '../actionCreators/user';
@@ -24,40 +31,33 @@ function updateLocation({ coords /* = noCoordError() */ }) {
     return;
   }
 
+  const ride = store.getState().get('ride').toJS();
   const location = {
     lat: coords.latitude,
     lng: coords.longitude
   };
 
-  const ride = store.getState().get('ride').toJS();
   if (!ride.match) {
     store.dispatch(userActions.setLocation(location));
-    console.log('setLocation action:', userActions.setLocation(location));
+  } else {
+    store.dispatch(userActions.setLocation(location, ride.match));
+    let destination = ride.match.location;
 
-    // const user = store.getState().get('user').toJS();
-    // console.log('user:', user);
-    return;
-  }
+    if (ride.isPickedUp) {
+      const user = store.getState().get('user').toJS();
+      const friendRider = user.friends.find((friend) => friend.user_id === ride.match.user_id);
 
-  store.dispatch(userActions.setLocation(location, ride.match));
-  let destination = ride.match.location;
-
-  if (ride.isPickedUp) {
-    const user = store.getState().get('user').toJS();
-    const friendRider = user.friends.find((friend) => friend.user_id === ride.match.user_id);
-
-    if (user.isRider) destination = user.profile.address;
-    else destination = friendRider.address;
-  }
-
-
-  console.log('routing to:', destination);
-  DirectionsService.route({
-    origin: location,
-    destination: destination,
-    travelMode: google.maps.TravelMode.DRIVING,
-  }, function (result, status) {
-      store.dispatch(rideActions.setDirections(result));
+      if (user.isRider) destination = user.profile.address;
+      else destination = friendRider.address;
     }
-  );
+
+    DirectionsService.route({
+      origin: location,
+      destination: destination,
+      travelMode: google.maps.TravelMode.DRIVING,
+    }, function (result, status) {
+        store.dispatch(rideActions.setDirections(result));
+      }
+    );
+  }
 }

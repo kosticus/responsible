@@ -145,8 +145,6 @@ export function setLocation(location, match) {
     entry: location,
   };
 
-  // console.log('setting location:', action);
-
   // emit a message if we have a partner
   if (match) {
     action.meta = {

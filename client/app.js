@@ -29,7 +29,9 @@ import { LoginContainer } from './containers/Login';
 
 import { socket } from './lib/socketConfig';
 import { configureListeners } from './lib/socketListeners';
+import initLocationWatcher from './lib/locationWatcher';
 
+initLocationWatcher();
 configureListeners(socket);
 
 const routes = <Route component={Root}>
@@ -52,7 +54,3 @@ ReactDOM.render(
   document.getElementById('app')
 );
 
-console.warn('initializing locationWatcher');
-// the location watcher relies on Redux being fully configured and so is way down here.
-import initLocationWatcher from './lib/locationWatcher';
-initLocationWatcher();

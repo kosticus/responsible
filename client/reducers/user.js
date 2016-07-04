@@ -4,10 +4,8 @@ import { handleUserInfo } from './userInfo';
 import { handleAddress } from './userAddress';
 
 export default function (state = Map(), action) {
-  if (!action.type.includes('@@')) {
-    console.log('reducing user state:', state.toJS());
-    console.warn('with action:', action);
-  }
+  // console.warn('reducing user state:', state.toJS());
+  // console.warn('with action:', action);
 
   switch (action.type) {
     case 'REQUEST_USER_INFO':
@@ -82,12 +80,7 @@ function setLocation(state, { entry }) {
     location: entry,
   };
 
-  console.log('UPDATING LOCATION:', updates);
-
-  let newState = state.merge(updates);
-
-  return newState;
-  // return state.merge(updates);
+  return state.merge(updates);
 };
 
 function droppedOff(state, action) {

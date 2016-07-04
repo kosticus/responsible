@@ -55,8 +55,6 @@ function receiveUserInfo(state, { entry }) {
   newState = state.mergeIn(['profile'], profileUpdates);
   newState = newState.merge(userUpdates);
 
-  // console.log('new state after user information:', newState);
-
   return newState;
 }
 

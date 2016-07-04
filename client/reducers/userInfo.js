@@ -24,7 +24,7 @@ function requestUserInfo(state) {
 }
 
 function receiveUserInfo(state, { entry }) {
-  console.log('received user information from server:', entry);
+  // console.log('received user information from server:', entry);
 
   let newState;
   let userUpdates = {
@@ -54,6 +54,8 @@ function receiveUserInfo(state, { entry }) {
 
   newState = state.mergeIn(['profile'], profileUpdates);
   newState = newState.merge(userUpdates);
+
+  // console.log('new state after user information:', newState);
 
   return newState;
 }

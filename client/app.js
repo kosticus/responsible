@@ -31,8 +31,6 @@ import { socket } from './lib/socketConfig';
 import { configureListeners } from './lib/socketListeners';
 import geoWatch from './lib/locationWatcher';
 
-// console.log(geoWatch);
-geoWatch();
 configureListeners(socket);
 
 const routes = <Route component={Root}>
@@ -54,3 +52,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('app')
 );
+
+geoWatch();

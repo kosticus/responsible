@@ -31,6 +31,10 @@ function updateLocation({ coords /* = noCoordError() */ }) {
   const ride = store.getState().get('ride').toJS();
   if (!ride.match) {
     store.dispatch(userActions.setLocation(location));
+    console.log(userActions.setLocation(location));
+
+    // const user = store.getState().get('user').toJS();
+    // console.log('user:', user);
     return;
   }
 

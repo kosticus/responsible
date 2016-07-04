@@ -4,7 +4,8 @@ import { handleUserInfo } from './userInfo';
 import { handleAddress } from './userAddress';
 
 export default function (state = Map(), action) {
-  // console.log('reducing user state:', state.toJS());
+  console.log('reducing user state:', state.toJS());
+  console.warn('with action:', action);
 
   switch (action.type) {
     case 'REQUEST_USER_INFO':
@@ -79,7 +80,13 @@ function setLocation(state, { entry }) {
     location: entry,
   };
 
-  return state.merge(updates);
+  console.log('updating location with:', updates);
+
+  let newState = state.merge(updates);
+
+  console.log('state after updates:', newState.toJS());
+  return newState;
+  // return state.merge(updates);
 };
 
 function droppedOff(state, action) {

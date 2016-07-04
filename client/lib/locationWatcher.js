@@ -26,6 +26,7 @@ function updateLocation({ coords /* = noCoordError() */ }) {
     lat: coords.latitude,
     lng: coords.longitude
   };
+  console.log('new location!:', location);
 
   const ride = store.getState().get('ride').toJS();
   if (!ride.match) {

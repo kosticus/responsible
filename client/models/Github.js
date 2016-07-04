@@ -25,10 +25,8 @@ const mapDispatchToProps = function (dispatch) {
       var user;
       OAuth.popup('github', { cache: true })
         .done(function (githubToken) {
-          console.warn('received githubtoken!:', githubToken);
           githubToken.me()
             .done(function (me) {
-              console.warn('HERE I AM:', me);
               user = {
                 username: me.alias,
                 name: me.name,
